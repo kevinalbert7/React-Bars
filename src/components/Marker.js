@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import { FaMapMarker } from 'react-icons/fa'
@@ -20,17 +20,24 @@ const InfoWindow = styled.div`
 `
 
 const Marker = ({ bar }) => {
-    const [infoWindowVisible, setInfoWindowVisible] = useState(false)
-    const { setSelectedBar } = useContext(MapContext)
+    const { selectedBar, setSelectedBar } = useContext(MapContext)
+    const [infoWindowVisible, setInfoWindowVisible] = useState(bar.id === selectedBar.id)
 
+    useEffect(() => {
+        setInfoWindowVisible(selectedBar.id === bar.id)
+    }, [selectedBar])
+    
     const handleMouseEnter = () => {
         setInfoWindowVisible(true)
-        setSelectedBar(bar.id)
+        setSelectedBar({ 
+            id: bar.id ,
+            from: 'marker'
+        })
     }
 
     const handleMouseLeave = () => {
         setInfoWindowVisible(false)
-        setSelectedBar(null)
+        setSelectedBar({ id: null })
     }
 
   return (
@@ -45,7 +52,7 @@ const Marker = ({ bar }) => {
         <FaMapMarker
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            style={{ width: '40px', height: '40px', color: "red" }}
+            style={{ width: '40px', height: '40px', color: 'red' }}
         />
     </Container>
   )

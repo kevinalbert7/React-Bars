@@ -1,10 +1,9 @@
-import { useContext } from "react"
-import styled from "styled-components"
-import GoogleMapReact from "google-map-react"
-import { FaMapMarkerAlt } from 'react-icons/fa'
+import { useContext } from 'react'
+import styled from 'styled-components'
+import GoogleMapReact from 'google-map-react'
 
-import { MapContext } from "../contexts/Map"
-import Marker from "./Marker"
+import { MapContext } from '../contexts/Map'
+import Marker from './Marker'
 
 const Container = styled.div`
     width: 66.66%;
@@ -22,9 +21,9 @@ const Map = () => {
   return (
     <Container>
         <GoogleMapReact
-            bootstrapURLKey={{ key:"" }}
-            defaultCenter={position}
+            bootstrapURLKey={{ key:'' }}
             defaultZoom={12}
+            center={position}
         >
             {bars.map(bar => {
                 <Marker 

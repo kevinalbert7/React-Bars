@@ -7,13 +7,14 @@ const MapContext = createContext({})
 const MapContextProvider = ({ children }) => {
     const [bars, setBars] = useState(barsArray)
     const [position, setPosition] = useState(null)
-    const [selectedBar, setSelectedBar] = useState(null)
+    const [selectedBar, setSelectedBar] = useState({ id: null })
 
     const value = {
         bars,
         position,
         selectedBar,
-        setSelectedBar
+        setSelectedBar,
+        setPosition
     }
 
     useEffect(() => {

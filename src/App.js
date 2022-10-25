@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import { MapContextProvider } from './contexts/Map'
 import Map from './components/Map'
 import List from './components/List'
-import ListItem from './components/ListItem'
 
 const Container = styled.div`
     width: 100%;

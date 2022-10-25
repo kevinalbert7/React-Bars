@@ -1,8 +1,8 @@
-import { useContext } from "react"
-import styled from "styled-components"
+import { useContext } from 'react'
+import styled from 'styled-components'
 
-import { MapContext } from "../contexts/Map"
-import ListItem from "./ListItem"
+import { MapContext } from '../contexts/Map'
+import ListItem from './ListItem'
 
 const Container = styled.div`
     width: 33.34%;
@@ -12,8 +12,6 @@ const Container = styled.div`
 `
 const List = () => {
     const { bars } = useContext(MapContext)
-
-    // console.log(bars)
 
   return (
     <Container>
