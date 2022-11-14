@@ -1,29 +1,25 @@
-import { useContext } from 'react'
-import styled from 'styled-components'
+import { useContext } from "react";
+import styled from "styled-components";
 
-import { MapContext } from '../contexts/Map'
-import ListItem from './ListItem'
+import { MapContext } from "../contexts/Map";
+import ListItem from "./ListItem";
 
 const Container = styled.div`
-    width: 33.34%;
-    height: 100%;
-    overflow-y: scroll;
-    padding: 10px;
-`
+  width: 33.34%;
+  height: 100%;
+  overflow-y: scroll;
+  padding: 10px;
+`;
 const List = () => {
-    const { bars } = useContext(MapContext)
+  const { bars } = useContext(MapContext);
 
   return (
     <Container>
-        {bars.map(bar => (
-            <ListItem 
-                key={bar.id} 
-                bar={bar}
-            />
-        ))}
+      {bars.map((bar) => (
+        <ListItem key={bar.id} bar={bar} />
+      ))}
     </Container>
+  );
+};
 
-  )
-}
-
-export default List
+export default List;
